@@ -1,8 +1,10 @@
 ---
 layout: page
 title: About me
-subtitle: 
+subtitle: under development 
 ---
 
-My name is Jayson Francis. Stay tuned, this is coming soon :P
+This section is currently under development.
 
+Email: jaysonfrancis@gmail.com<br>
+(LinkedIn)[http://www.linkedin.com/in/jaysonfrancis]
