@@ -22,6 +22,9 @@ description: My Portal
 # Force encoding
 encoding: UTF-8
 
+# Future post
+future: true
+
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
