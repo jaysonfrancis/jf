@@ -57,9 +57,6 @@ for file in files:
 df = pd.concat(framelist);
 ```
 
-    //anaconda/lib/python3.5/site-packages/IPython/core/interactiveshell.py:2705: DtypeWarning: Columns (14) have mixed types. Specify dtype option on import or set low_memory=False.
-      interactivity=interactivity, compiler=compiler, result=result)
-
 
 Let's look at some basic info with the dataset.
 
@@ -404,13 +401,6 @@ plt.title('Amount of flights recorded per airline (2016)', fontsize=15)
 ```
 
 
-
-
-    <matplotlib.text.Text at 0x118856b00>
-
-
-
-
 ![png](2016-07-29-airlinestatspt1_files/2016-07-29-airlinestatspt1_15_1.png)
 
 
@@ -574,13 +564,6 @@ plot = delayratiodf[['Delays', 'Total']].plot(kind='barh', figsize=(20,15), lege
 # Increase the legend size
 plot.legend(loc=4, prop={'size':20})
 ```
-
-
-
-
-    <matplotlib.legend.Legend at 0x115d52b70>
-
-
 
 
 ![png](2016-07-29-airlinestatspt1_files/2016-07-29-airlinestatspt1_22_1.png)
