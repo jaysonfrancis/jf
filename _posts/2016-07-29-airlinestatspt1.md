@@ -401,7 +401,7 @@ plt.title('Amount of flights recorded per airline (2016)', fontsize=15)
 ```
 
 
-![png](2016-07-29-airlinestatspt1_files/2016-07-29-airlinestatspt1_15_1.png)
+![png](../images/2016-07-29-airlinestatspt1_15_1.png)
 
 
 ### Delay Statistics
@@ -566,7 +566,7 @@ plot.legend(loc=4, prop={'size':20})
 ```
 
 
-![png](2016-07-29-airlinestatspt1_files/2016-07-29-airlinestatspt1_22_1.png)
+![png](../images/2016-07-29-airlinestatspt1_22_1.png)
 
 
 ### Frequency of delays
@@ -701,7 +701,7 @@ for p in ax.patches:
 ```
 
 
-![png](2016-07-29-airlinestatspt1_files/2016-07-29-airlinestatspt1_28_0.png)
+![png](../images/2016-07-29-airlinestatspt1_28_0.png)
 
 
 ## To be continued...
