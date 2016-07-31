@@ -25,6 +25,8 @@ In this specific example, I collected data that had either <b>DEST_CITY_NAME</b>
 You can use filters to identify a specific dataset you want to look at.<br>
 You can download your own source [here](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)
 
+This notebook was only used to introduce the data. I will begin some more in depth exploratory data analysis in the coming weeks. My end goal is to develop a predictive model using machine learning techniques and historical data to predict in advance if future (24-48 hours) selected flights will experience any delays.
+
 
 ```python
 # Assign a list of available files in my data directory (../data/2016/) to a variable
