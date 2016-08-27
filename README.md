@@ -1,1 +1,0 @@
-## jaysonfrancis.github.io
