@@ -13,5 +13,5 @@ If I decide to append in any other readings, I will note them in the future. Mos
 [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0#navbar)
 
 ### Notebooks
-[Rosenblatt's Perceptron Rule](https://github.com/jaysonfrancis/machinelearning/blob/master/perceptron.ipynb)<br>
+[Rosenblatt's Perceptron Rule](https://github.com/jaysonfrancis/machinelearning/blob/master/src/perceptron.ipynb)<br>
 Adaptive Linear Element, Adaline. - Coming soon
