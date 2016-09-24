@@ -26,4 +26,4 @@ To start off, I was referred to _Python Machine Learning by Sebastian Raschka_ t
 ### Other Resources
 
 - Marchine Learning, Stanford University (Andrew Ng) - Using octave
-[https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-standford](https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-standford)
+[https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-stanford](https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-standford)
