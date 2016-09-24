@@ -23,7 +23,5 @@ To start off, I was referred to _Python Machine Learning by Sebastian Raschka_ t
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0#navbar)
 
 
-### Other Resources
-
-- Marchine Learning, Stanford University (Andrew Ng) - Using octave
-[https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-stanford](https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-stanford)
+### Other Notes
+- [Marchine Learning, Stanford University (Andrew Ng) - Using octave](https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-stanford)
