@@ -10,7 +10,7 @@ My expertise includes Machine Learning development & large scale distributed pro
 
 I also enjoy spending time on quantitative analysis and developing algorithmic investment strategies.
 
-[jaysonfrancis.com](http://www.jaysonfrancis.com
+[jaysonfrancis.com](http://www.jaysonfrancis.com)
 
 To contact me, please feel free to email me, [jaysonfrancis@gmail.com](mailto:jaysonfrancis@gmail.com)
 

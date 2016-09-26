@@ -29,6 +29,13 @@ future: true
 
 # List of links in the navigation bar
 navbar-links:
+  Resources:
+    - My Machine Learning Toolkit: "https://github.com/jaysonfrancis/machinelearning"
+    - Big Data Specialization: "https://github.com/jaysonfrancis/coursera/tree/master/bigdata-specialization-ucsandiego"
+    - Data Science - Machine Learning (Stanford): "https://github.com/jaysonfrancis/coursera/tree/master/machinelearning-stanford"
+    - Quantopian: "https://www.quantopian.com/home"
+    - Kaggle: "https://www.kaggle.com/"
+    - Topcoder: "https://www.topcoder.com/"
   BLOG: ""
   About Me: "aboutme"
   # Resources:
