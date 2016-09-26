@@ -17,7 +17,8 @@ To start off, I was referred to _Python Machine Learning by Sebastian Raschka_ t
 - [Adaptive Linear Element, Adaline.](https://github.com/jaysonfrancis/machinelearning/blob/master/src/adaline.ipynb)  
 - [Perceptron example with sklearn ](https://github.com/jaysonfrancis/machinelearning/blob/master/src/perceptron-sklearn.ipynb)
 - [Logistic regression with sklearn ](https://github.com/jaysonfrancis/machinelearning/blob/master/src/logisticregression-sklearn.ipynb)
-- Support Vector Machines (SVM) with sklearn (Coming Soon)
+- [Support Vector Machines (SVM) with sklearn](https://github.com/jaysonfrancis/machinelearning/blob/master/src/supportvectormachines.ipynb)  
+- Decision tree learning (Coming soon)
 
 ### Readings
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0#navbar)
