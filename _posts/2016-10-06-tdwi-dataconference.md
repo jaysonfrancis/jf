@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TDWI Data Science Bootcamp & Conference 
+title: TDWI Data Science Bootcamp & Conference, San Diego CA.
 subtitle: 
 ---
 
@@ -11,6 +11,8 @@ I decided to attend the TDWI hosted event in San Diego, CA. The event consisted 
 I attended the 2-day bootcamp around the fundamentals of Data Science, which started off the week. I had the wonderful opportunity to meet with some industry leaders and professionals that work in this field to get their perspective on building a data science team and deep dive into the aspects of CRISP-DM.
 
 Overall, the event was well organized and informational. I recommend it to anyone looking to gain insights in the fields of BI and Data science and how to derive value from data for the business.
+
+For more formation on the event, [https://events.tdwi.org/events/san-diego-2016/home.aspx](https://events.tdwi.org/events/san-diego-2016/home.aspx)
 
 
 --- 
@@ -52,12 +54,12 @@ Speaker: Keith McCormick
 
 ##### Images
 
-![img/tdwi-01.png](../img/tdwi-01.JPG)  <br>
-![img/tdwi-02.png](../img/tdwi-02.JPG)  <br>
-![img/tdwi-03.png](../img/tdwi-03.JPG)  <br>
-![img/tdwi-04.png](../img/tdwi-04.JPG)  <br>
-![img/tdwi-05.png](../img/tdwi-05.JPG)  <br>
-![img/tdwi-06.png](../img/tdwi-06.JPG)  <br>
-![img/tdwi-07.png](../img/tdwi-07.JPG)  <br>
+![img/tdwi-01.png](../img/tdwi-01.JPG)  <br><br>
+![img/tdwi-02.png](../img/tdwi-02.JPG)  <br><br>
+![img/tdwi-03.png](../img/tdwi-03.JPG)  <br><br>
+![img/tdwi-04.png](../img/tdwi-04.JPG)  <br><br>
+![img/tdwi-05.png](../img/tdwi-05.JPG)  <br><br>
+![img/tdwi-06.png](../img/tdwi-06.JPG)  <br><br>
+![img/tdwi-07.png](../img/tdwi-07.JPG)  <br><br>
 
 
