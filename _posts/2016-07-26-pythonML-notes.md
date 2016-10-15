@@ -19,7 +19,7 @@ To start off, I was referred to _Python Machine Learning by Sebastian Raschka_ t
 - [Logistic regression with sklearn ](https://github.com/jaysonfrancis/machinelearning/blob/master/src/logisticregression-sklearn.ipynb)
 - [Support Vector Machines (SVM) with sklearn](https://github.com/jaysonfrancis/machinelearning/blob/master/src/supportvectormachines.ipynb)  
 - [Decision Tree Learning & Random Forest](https://github.com/jaysonfrancis/machinelearning/blob/master/src/decisiontree.ipynb)  
-- [K-Nearest Neighbors (KNN)](https://github.com/jaysonfrancis/machinelearning/blob/master/src/decisiontree.ipynb)
+- [K-Nearest Neighbors (KNN)](https://github.com/jaysonfrancis/machinelearning/blob/master/src/knearestneighbors.ipynb)
 
 ### Readings
 - [Python Machine Learning, Sebastian Raschka](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0#navbar)
