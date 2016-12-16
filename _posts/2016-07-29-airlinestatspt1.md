@@ -8,6 +8,8 @@ I just came back from a quick get away to Cabo and had a very bad expierience wi
 with empirical data what airlines perform best with the cities I most frequently travel to, specifically in California. I decided to start some notes. 
 
 
+
+
 ```python
 import pandas as pd
 import numpy as np
@@ -24,8 +26,6 @@ In this specific example, I collected data that had either <b>DEST_CITY_NAME</b>
 
 You can use filters to identify a specific dataset you want to look at.<br>
 You can download your own source [here](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)
-
-This notebook was only used to introduce the data. I will begin some more in depth exploratory data analysis in the coming weeks. My end goal is to develop a predictive model using machine learning techniques and historical data to predict in advance if future (24-48 hours) selected flights will experience any delays.
 
 
 ```python
@@ -58,6 +58,9 @@ for file in files:
     
 df = pd.concat(framelist);
 ```
+
+    //anaconda/lib/python3.5/site-packages/IPython/core/interactiveshell.py:2717: DtypeWarning: Columns (14) have mixed types. Specify dtype option on import or set low_memory=False.
+      interactivity=interactivity, compiler=compiler, result=result)
 
 
 Let's look at some basic info with the dataset.
@@ -94,170 +97,6 @@ df.info()
     Unnamed: 21              0 non-null float64
     dtypes: float64(9), int64(9), object(4)
     memory usage: 85.3+ MB
-
-
-
-```python
-df.head()
-```
-
-
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEAR</th>
-      <th>MONTH</th>
-      <th>UNIQUE_CARRIER</th>
-      <th>AIRLINE_ID</th>
-      <th>ORIGIN_AIRPORT_ID</th>
-      <th>ORIGIN_AIRPORT_SEQ_ID</th>
-      <th>ORIGIN_CITY_MARKET_ID</th>
-      <th>ORIGIN_CITY_NAME</th>
-      <th>DEST_AIRPORT_ID</th>
-      <th>DEST_AIRPORT_SEQ_ID</th>
-      <th>...</th>
-      <th>ARR_DELAY_NEW</th>
-      <th>CANCELLED</th>
-      <th>CANCELLATION_CODE</th>
-      <th>AIR_TIME</th>
-      <th>CARRIER_DELAY</th>
-      <th>WEATHER_DELAY</th>
-      <th>NAS_DELAY</th>
-      <th>SECURITY_DELAY</th>
-      <th>LATE_AIRCRAFT_DELAY</th>
-      <th>Unnamed: 21</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2016</td>
-      <td>4</td>
-      <td>AA</td>
-      <td>19805</td>
-      <td>12478</td>
-      <td>1247803</td>
-      <td>31703</td>
-      <td>New York, NY</td>
-      <td>12892</td>
-      <td>1289203</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>329.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2016</td>
-      <td>4</td>
-      <td>AA</td>
-      <td>19805</td>
-      <td>12478</td>
-      <td>1247803</td>
-      <td>31703</td>
-      <td>New York, NY</td>
-      <td>12892</td>
-      <td>1289203</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>329.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2016</td>
-      <td>4</td>
-      <td>AA</td>
-      <td>19805</td>
-      <td>12478</td>
-      <td>1247803</td>
-      <td>31703</td>
-      <td>New York, NY</td>
-      <td>12892</td>
-      <td>1289203</td>
-      <td>...</td>
-      <td>68.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>339.0</td>
-      <td>33.0</td>
-      <td>0.0</td>
-      <td>7.0</td>
-      <td>0.0</td>
-      <td>28.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2016</td>
-      <td>4</td>
-      <td>AA</td>
-      <td>19805</td>
-      <td>12478</td>
-      <td>1247803</td>
-      <td>31703</td>
-      <td>New York, NY</td>
-      <td>12892</td>
-      <td>1289203</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>345.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2016</td>
-      <td>4</td>
-      <td>AA</td>
-      <td>19805</td>
-      <td>12478</td>
-      <td>1247803</td>
-      <td>31703</td>
-      <td>New York, NY</td>
-      <td>12892</td>
-      <td>1289203</td>
-      <td>...</td>
-      <td>22.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>350.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>22.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 22 columns</p>
-</div>
-
 
 
 
@@ -312,48 +151,48 @@ pd.DataFrame.from_dict(airlinekeys, orient="index")
   </thead>
   <tbody>
     <tr>
-      <th>VX</th>
-      <td>Virgin America</td>
-    </tr>
-    <tr>
       <th>DL</th>
       <td>Delta Airlines Inc.</td>
-    </tr>
-    <tr>
-      <th>NK</th>
-      <td>Spirit Airlines</td>
-    </tr>
-    <tr>
-      <th>F9</th>
-      <td>Frontier Airlines Inc</td>
-    </tr>
-    <tr>
-      <th>AA</th>
-      <td>American Airlines Inc</td>
-    </tr>
-    <tr>
-      <th>B6</th>
-      <td>JetBlue Airways</td>
     </tr>
     <tr>
       <th>HA</th>
       <td>Hawaiian Airlines Inc</td>
     </tr>
     <tr>
+      <th>F9</th>
+      <td>Frontier Airlines Inc</td>
+    </tr>
+    <tr>
       <th>UA</th>
       <td>United Airlines Inc.</td>
+    </tr>
+    <tr>
+      <th>NK</th>
+      <td>Spirit Airlines</td>
     </tr>
     <tr>
       <th>OO</th>
       <td>SkyWest Airlines Inc</td>
     </tr>
     <tr>
+      <th>AS</th>
+      <td>Alaska Airlines Inc.</td>
+    </tr>
+    <tr>
+      <th>B6</th>
+      <td>JetBlue Airways</td>
+    </tr>
+    <tr>
+      <th>VX</th>
+      <td>Virgin America</td>
+    </tr>
+    <tr>
       <th>WN</th>
       <td>Southwest Airlines Co</td>
     </tr>
     <tr>
-      <th>AS</th>
-      <td>Alaska Airlines Inc.</td>
+      <th>AA</th>
+      <td>American Airlines Inc</td>
     </tr>
   </tbody>
 </table>
@@ -387,10 +226,6 @@ df['UNIQUE_CARRIER'].value_counts()
 
 
 
-So, as you can see here, 'WN' (Southwest) services the most flights IN/OUT of California. 'HA' (Hawaiian Airlines) has the fewest.<br>
-
-Lets visualize that.
-
 
 ```python
 fig = plt.figure(figsize=(20,10))
@@ -399,14 +234,21 @@ df.UNIQUE_CARRIER.value_counts().plot(kind='barh')
 
 plt.ylabel('Frequency', fontsize=15); plt.xlabel('Airline', fontsize=15)
 plt.tick_params(axis='both', labelsize=15)
-plt.title('Amount of flights recorded per airline (2016)', fontsize=15)
+plt.title('Flights per Airline (2016)', fontsize=15)
 ```
 
 
-![png](../images/2016-07-29-airlinestatspt1_15_1.png)
 
 
-### Delay Statistics
+    <matplotlib.text.Text at 0x150dd3b38>
+
+
+
+
+![png](images/output_13_1.png)
+
+
+### Delay Ratio
 
 
 ```python
@@ -568,16 +410,22 @@ plot.legend(loc=4, prop={'size':20})
 ```
 
 
-![png](../images/2016-07-29-airlinestatspt1_22_1.png)
 
 
-### Frequency of delays
+    <matplotlib.legend.Legend at 0x1408624e0>
+
+
+
+
+![png](images/output_20_1.png)
+
+
+### Percentage of Delays
 
 
 ```python
 # Simple function to determine ratio
 def ratio(df):
-    
     return float("%.2f" % ((df[0]/df[1])*100))
 ```
 
@@ -687,13 +535,9 @@ delayratiodf
 
 
 
-According to this, <b>Spirit Airlines</b> is the worst performing in terms of delay frequency at <b>48%</b> of the time, and <b>United Airlines</b> has the lowest chance, <b>27.61%</b><br>
-
-Let's visualize that
-
 
 ```python
-ax = delayratiodf.plot(y='Percentage', kind='barh', figsize=(20,10), title='Percntage of delayed flights', color='red')
+ax = delayratiodf.plot(y='Percentage', kind='barh', figsize=(10,5), title='% of delayed flights', color='red')
 
 plt.ylabel('Percentage', fontsize=15); plt.xlabel('Airline', fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
@@ -703,12 +547,331 @@ for p in ax.patches:
 ```
 
 
-![png](../images/2016-07-29-airlinestatspt1_28_0.png)
+![png](images/output_25_0.png)
 
 
-## To be continued...
+## California Specific Analysis
 
 
 ```python
-
+# Create new dataframe with origin/dest related to CA
+cali_df = df[(df['ORIGIN_CITY_NAME'].str.endswith('CA')) & (df['DEST_CITY_NAME'].str.endswith('CA'))]
 ```
+
+
+```python
+cali_df.describe()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YEAR</th>
+      <th>MONTH</th>
+      <th>AIRLINE_ID</th>
+      <th>ORIGIN_AIRPORT_ID</th>
+      <th>ORIGIN_AIRPORT_SEQ_ID</th>
+      <th>ORIGIN_CITY_MARKET_ID</th>
+      <th>DEST_AIRPORT_ID</th>
+      <th>DEST_AIRPORT_SEQ_ID</th>
+      <th>DEST_CITY_MARKET_ID</th>
+      <th>ARR_DELAY_NEW</th>
+      <th>CANCELLED</th>
+      <th>AIR_TIME</th>
+      <th>CARRIER_DELAY</th>
+      <th>WEATHER_DELAY</th>
+      <th>NAS_DELAY</th>
+      <th>SECURITY_DELAY</th>
+      <th>LATE_AIRCRAFT_DELAY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>91501.0</td>
+      <td>91501.000000</td>
+      <td>91501.000000</td>
+      <td>91501.000000</td>
+      <td>9.150100e+04</td>
+      <td>91501.000000</td>
+      <td>91501.000000</td>
+      <td>9.150100e+04</td>
+      <td>91501.000000</td>
+      <td>89525.000000</td>
+      <td>91501.000000</td>
+      <td>89525.000000</td>
+      <td>19414.000000</td>
+      <td>19414.000000</td>
+      <td>19414.000000</td>
+      <td>19414.000000</td>
+      <td>19414.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2016.0</td>
+      <td>3.061016</td>
+      <td>19848.285035</td>
+      <td>13970.626343</td>
+      <td>1.397065e+06</td>
+      <td>32755.264795</td>
+      <td>13970.905509</td>
+      <td>1.397093e+06</td>
+      <td>32755.461099</td>
+      <td>13.972041</td>
+      <td>0.020721</td>
+      <td>55.312125</td>
+      <td>12.237767</td>
+      <td>0.753992</td>
+      <td>15.523746</td>
+      <td>0.050943</td>
+      <td>30.112548</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.0</td>
+      <td>1.420584</td>
+      <td>513.920769</td>
+      <td>1158.432112</td>
+      <td>1.158429e+05</td>
+      <td>616.287595</td>
+      <td>1157.894328</td>
+      <td>1.157891e+05</td>
+      <td>616.863209</td>
+      <td>35.718908</td>
+      <td>0.142450</td>
+      <td>12.036933</td>
+      <td>41.330625</td>
+      <td>8.668506</td>
+      <td>31.951950</td>
+      <td>1.722173</td>
+      <td>42.351366</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2016.0</td>
+      <td>1.000000</td>
+      <td>19393.000000</td>
+      <td>10157.000000</td>
+      <td>1.015703e+06</td>
+      <td>30157.000000</td>
+      <td>10157.000000</td>
+      <td>1.015703e+06</td>
+      <td>30157.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>15.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2016.0</td>
+      <td>2.000000</td>
+      <td>19393.000000</td>
+      <td>12892.000000</td>
+      <td>1.289204e+06</td>
+      <td>32457.000000</td>
+      <td>12892.000000</td>
+      <td>1.289204e+06</td>
+      <td>32457.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>51.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2016.0</td>
+      <td>3.000000</td>
+      <td>19790.000000</td>
+      <td>14679.000000</td>
+      <td>1.467903e+06</td>
+      <td>32575.000000</td>
+      <td>14679.000000</td>
+      <td>1.467903e+06</td>
+      <td>32575.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>57.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>16.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2016.0</td>
+      <td>4.000000</td>
+      <td>20304.000000</td>
+      <td>14771.000000</td>
+      <td>1.477102e+06</td>
+      <td>32575.000000</td>
+      <td>14771.000000</td>
+      <td>1.477102e+06</td>
+      <td>32575.000000</td>
+      <td>11.000000</td>
+      <td>0.000000</td>
+      <td>63.000000</td>
+      <td>7.000000</td>
+      <td>0.000000</td>
+      <td>17.000000</td>
+      <td>0.000000</td>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2016.0</td>
+      <td>5.000000</td>
+      <td>21171.000000</td>
+      <td>14908.000000</td>
+      <td>1.490803e+06</td>
+      <td>34922.000000</td>
+      <td>14908.000000</td>
+      <td>1.490803e+06</td>
+      <td>34922.000000</td>
+      <td>980.000000</td>
+      <td>1.000000</td>
+      <td>144.000000</td>
+      <td>979.000000</td>
+      <td>286.000000</td>
+      <td>376.000000</td>
+      <td>145.000000</td>
+      <td>594.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+plot = cali_df.UNIQUE_CARRIER.value_counts().plot(kind='barh', title='Flights per Airline')
+```
+
+
+![png](images/output_29_0.png)
+
+
+
+```python
+ax = sns.barplot(orient='v', x='UNIQUE_CARRIER', y='ARR_DELAY_NEW', data=cali_df)
+ax.set_title('Average delay by airline')
+```
+
+
+
+
+    <matplotlib.text.Text at 0x1535b3cf8>
+
+
+
+
+![png](images/output_30_1.png)
+
+
+
+```python
+# Dummy variables for all the categorical features.
+dummy_df = pd.get_dummies(cali_df).copy()
+```
+
+
+```python
+# Replace numeric missing values (NaNs) with the mean of their respective columns
+dummy_df = dummy_df.fillna(dummy_df.mean())
+```
+
+
+```python
+# Set up matrices to use for sklearn
+X = dummy_df.drop('AIR_TIME', 1).values
+y = dummy_df['AIR_TIME'].values
+```
+
+### Modeling
+##### (In progress, predicting air_time)
+
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
+import numpy as np
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=1)
+
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn import linear_model
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import ExtraTreesRegressor
+from sklearn.neural_network import MLPRegressor
+
+params = {'n_estimators': 1000, 'max_depth': 4.5, 'min_samples_split': 2,
+          'learning_rate': 0.01, 'loss': 'ls'}
+
+
+forest = ExtraTreesRegressor(criterion='mse', random_state=1)
+#forest = GradientBoostingRegressor(**params)
+#forest = RandomForestRegressor(n_estimators=1000, bootstrap=False, max_depth=None, criterion='mae', verbose=False, random_state=1, n_jobs=-1)
+#forest = AdaBoostRegressor(DecisionTreeRegressor(criterion='mse'), n_estimators=1000, random_state=1)
+#forest = Ridge(alpha=1, normalize=True, fit_intercept=False, random_state=1)
+#forest = linear_model.SGDRegressor(penalty='elasticnet')
+#forest = DecisionTreeRegressor(criterion='mse')
+#forest = Ridge(alpha=0.0001, random_state=1)
+#forest = MLPRegressor(activation='logistic',
+#                      solver='lbfgs',learning_rate='adaptive')
+
+forest.fit(X_train, y_train)
+
+y_train_pred = forest.predict(X_train)
+y_test_pred = forest.predict(X_test)
+
+print('MSE train: %.3f, test: %.3f' % (
+      mean_squared_error(y_train, y_train_pred),
+      mean_squared_error(y_test, y_test_pred)))
+
+print('R^2 train: %.3f, test: %.3f' %(
+      r2_score(y_train, y_train_pred),
+      r2_score(y_test, y_test_pred)))
+
+plt.scatter(y_train_pred, y_train_pred - y_train, c='black', marker='o', s=35, alpha=0.5, label='Training Data')
+plt.scatter(y_test_pred, y_test_pred - y_test, c='lightgreen', marker='s', s=35, alpha=0.7, label='Test data')
+
+plt.xlabel('Predicted values')
+plt.ylabel('Error/Residuals')
+plt.legend(loc='upper left')
+plt.hlines(y=0, xmin=-10, xmax=5, lw=2, color='red')
+#plt.xlim([-1, 2])
+#plt.ylim([-0.5, 1])
+plt.show()
+```
+
+    MSE train: 7.502, test: 15.512
+    R^2 train: 0.947, test: 0.890
+
+
+
+![png](images/output_35_1.png)
+
