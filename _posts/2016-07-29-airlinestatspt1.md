@@ -245,7 +245,7 @@ plt.title('Flights per Airline (2016)', fontsize=15)
 
 
 
-![png](images/output_13_1.png)
+![png](../images/output_13_1.png)
 
 
 ### Delay Ratio
@@ -417,7 +417,7 @@ plot.legend(loc=4, prop={'size':20})
 
 
 
-![png](images/output_20_1.png)
+![png](../images/output_20_1.png)
 
 
 ### Percentage of Delays
@@ -547,7 +547,7 @@ for p in ax.patches:
 ```
 
 
-![png](images/output_25_0.png)
+![png](../images/output_25_0.png)
 
 
 ## California Specific Analysis
@@ -763,7 +763,7 @@ plot = cali_df.UNIQUE_CARRIER.value_counts().plot(kind='barh', title='Flights pe
 ```
 
 
-![png](images/output_29_0.png)
+![png](../images/output_29_0.png)
 
 
 
@@ -780,7 +780,7 @@ ax.set_title('Average delay by airline')
 
 
 
-![png](images/output_30_1.png)
+![png](../images/output_30_1.png)
 
 
 
@@ -873,5 +873,5 @@ plt.show()
 
 
 
-![png](images/output_35_1.png)
+![png](../images/output_35_1.png)
 
