@@ -4,7 +4,7 @@ title: Airline Performance Mini Stats & Notes Pt. 1
 subtitle: Just playing with some data generated from the transportation statistics website, part 1 is just introducing the data. 
 ---
 
-I just came back from a quick get away to Cabo and had a very bad expierience with a particular airline. From delays, to horrible customer service, etc. Anyways, I wanted to figure out
+I just came back from a quick get away to Cabo and had a very bad experience with a particular airline. From delays, to horrible customer service, etc. Anyways, I wanted to figure out
 with empirical data what airlines perform best with the cities I most frequently travel to, specifically in California. I decided to start some notes. 
 
 
@@ -19,12 +19,12 @@ import seaborn as sns
 import os
 ```
 
-Downloaded a few comma-delimited data from the <b>United States Department of Transportation, Bureau of Transportation Statistics website.</b> <br>
-This data ranges from the months of <b>Janurary - May in 2016.</b><br>
+Downloaded comma-delimited data from the <b>United States Department of Transportation, Bureau of Transportation Statistics website.</b> <br>
 
-In this specific example, I collected data that had either <b>DEST_CITY_NAME</b> or <b>ORGIN_CITY_NAME</b> related to California. What does this mean? It means that a specific flight had either departed or landed in a California based airport.
+This data ranges from the months of <b>January - May in 2016.</b><br>
 
 You can use filters to identify a specific dataset you want to look at.<br>
+
 You can download your own source [here](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)
 
 
@@ -559,201 +559,6 @@ cali_df = df[(df['ORIGIN_CITY_NAME'].str.endswith('CA')) & (df['DEST_CITY_NAME']
 ```
 
 
-```python
-cali_df.describe()
-```
-
-
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEAR</th>
-      <th>MONTH</th>
-      <th>AIRLINE_ID</th>
-      <th>ORIGIN_AIRPORT_ID</th>
-      <th>ORIGIN_AIRPORT_SEQ_ID</th>
-      <th>ORIGIN_CITY_MARKET_ID</th>
-      <th>DEST_AIRPORT_ID</th>
-      <th>DEST_AIRPORT_SEQ_ID</th>
-      <th>DEST_CITY_MARKET_ID</th>
-      <th>ARR_DELAY_NEW</th>
-      <th>CANCELLED</th>
-      <th>AIR_TIME</th>
-      <th>CARRIER_DELAY</th>
-      <th>WEATHER_DELAY</th>
-      <th>NAS_DELAY</th>
-      <th>SECURITY_DELAY</th>
-      <th>LATE_AIRCRAFT_DELAY</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>91501.0</td>
-      <td>91501.000000</td>
-      <td>91501.000000</td>
-      <td>91501.000000</td>
-      <td>9.150100e+04</td>
-      <td>91501.000000</td>
-      <td>91501.000000</td>
-      <td>9.150100e+04</td>
-      <td>91501.000000</td>
-      <td>89525.000000</td>
-      <td>91501.000000</td>
-      <td>89525.000000</td>
-      <td>19414.000000</td>
-      <td>19414.000000</td>
-      <td>19414.000000</td>
-      <td>19414.000000</td>
-      <td>19414.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>2016.0</td>
-      <td>3.061016</td>
-      <td>19848.285035</td>
-      <td>13970.626343</td>
-      <td>1.397065e+06</td>
-      <td>32755.264795</td>
-      <td>13970.905509</td>
-      <td>1.397093e+06</td>
-      <td>32755.461099</td>
-      <td>13.972041</td>
-      <td>0.020721</td>
-      <td>55.312125</td>
-      <td>12.237767</td>
-      <td>0.753992</td>
-      <td>15.523746</td>
-      <td>0.050943</td>
-      <td>30.112548</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.0</td>
-      <td>1.420584</td>
-      <td>513.920769</td>
-      <td>1158.432112</td>
-      <td>1.158429e+05</td>
-      <td>616.287595</td>
-      <td>1157.894328</td>
-      <td>1.157891e+05</td>
-      <td>616.863209</td>
-      <td>35.718908</td>
-      <td>0.142450</td>
-      <td>12.036933</td>
-      <td>41.330625</td>
-      <td>8.668506</td>
-      <td>31.951950</td>
-      <td>1.722173</td>
-      <td>42.351366</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>2016.0</td>
-      <td>1.000000</td>
-      <td>19393.000000</td>
-      <td>10157.000000</td>
-      <td>1.015703e+06</td>
-      <td>30157.000000</td>
-      <td>10157.000000</td>
-      <td>1.015703e+06</td>
-      <td>30157.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>15.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2016.0</td>
-      <td>2.000000</td>
-      <td>19393.000000</td>
-      <td>12892.000000</td>
-      <td>1.289204e+06</td>
-      <td>32457.000000</td>
-      <td>12892.000000</td>
-      <td>1.289204e+06</td>
-      <td>32457.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>51.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2016.0</td>
-      <td>3.000000</td>
-      <td>19790.000000</td>
-      <td>14679.000000</td>
-      <td>1.467903e+06</td>
-      <td>32575.000000</td>
-      <td>14679.000000</td>
-      <td>1.467903e+06</td>
-      <td>32575.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>57.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>2.000000</td>
-      <td>0.000000</td>
-      <td>16.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2016.0</td>
-      <td>4.000000</td>
-      <td>20304.000000</td>
-      <td>14771.000000</td>
-      <td>1.477102e+06</td>
-      <td>32575.000000</td>
-      <td>14771.000000</td>
-      <td>1.477102e+06</td>
-      <td>32575.000000</td>
-      <td>11.000000</td>
-      <td>0.000000</td>
-      <td>63.000000</td>
-      <td>7.000000</td>
-      <td>0.000000</td>
-      <td>17.000000</td>
-      <td>0.000000</td>
-      <td>40.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2016.0</td>
-      <td>5.000000</td>
-      <td>21171.000000</td>
-      <td>14908.000000</td>
-      <td>1.490803e+06</td>
-      <td>34922.000000</td>
-      <td>14908.000000</td>
-      <td>1.490803e+06</td>
-      <td>34922.000000</td>
-      <td>980.000000</td>
-      <td>1.000000</td>
-      <td>144.000000</td>
-      <td>979.000000</td>
-      <td>286.000000</td>
-      <td>376.000000</td>
-      <td>145.000000</td>
-      <td>594.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 
