@@ -15,16 +15,17 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 %matplotlib inline
 import os
 ```
 
-Downloaded comma-delimited data from the <b>United States Department of Transportation, Bureau of Transportation Statistics website.</b> <br>
+Downloaded a few comma-delimited data from the <b>United States Department of Transportation, Bureau of Transportation Statistics website.</b> <br>
+This data ranges from the months of <b>Janurary - May in 2016.</b><br>
 
-This data ranges from the months of <b>January - May in 2016.</b><br>
+In this specific example, I collected data that had either <b>DEST_CITY_NAME</b> or <b>ORGIN_CITY_NAME</b> related to California. What does this mean? It means that a specific flight had either departed or landed in a California based airport.
 
 You can use filters to identify a specific dataset you want to look at.<br>
-
 You can download your own source [here](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)
 
 
@@ -53,15 +54,11 @@ files
 framelist = []
 
 for file in files:
-    tempdf = pd.read_csv("data/2016/" + file)
+    tempdf = pd.read_csv("data/2016/" + file, low_memory=False)
     framelist.append(tempdf)
     
 df = pd.concat(framelist);
 ```
-
-    //anaconda/lib/python3.5/site-packages/IPython/core/interactiveshell.py:2717: DtypeWarning: Columns (14) have mixed types. Specify dtype option on import or set low_memory=False.
-      interactivity=interactivity, compiler=compiler, result=result)
-
 
 Let's look at some basic info with the dataset.
 
@@ -151,48 +148,48 @@ pd.DataFrame.from_dict(airlinekeys, orient="index")
   </thead>
   <tbody>
     <tr>
-      <th>DL</th>
-      <td>Delta Airlines Inc.</td>
-    </tr>
-    <tr>
-      <th>HA</th>
-      <td>Hawaiian Airlines Inc</td>
-    </tr>
-    <tr>
-      <th>F9</th>
-      <td>Frontier Airlines Inc</td>
+      <th>AA</th>
+      <td>American Airlines Inc</td>
     </tr>
     <tr>
       <th>UA</th>
       <td>United Airlines Inc.</td>
     </tr>
     <tr>
-      <th>NK</th>
-      <td>Spirit Airlines</td>
+      <th>AS</th>
+      <td>Alaska Airlines Inc.</td>
+    </tr>
+    <tr>
+      <th>F9</th>
+      <td>Frontier Airlines Inc</td>
     </tr>
     <tr>
       <th>OO</th>
       <td>SkyWest Airlines Inc</td>
     </tr>
     <tr>
-      <th>AS</th>
-      <td>Alaska Airlines Inc.</td>
+      <th>HA</th>
+      <td>Hawaiian Airlines Inc</td>
+    </tr>
+    <tr>
+      <th>DL</th>
+      <td>Delta Airlines Inc.</td>
     </tr>
     <tr>
       <th>B6</th>
       <td>JetBlue Airways</td>
     </tr>
     <tr>
-      <th>VX</th>
-      <td>Virgin America</td>
-    </tr>
-    <tr>
       <th>WN</th>
       <td>Southwest Airlines Co</td>
     </tr>
     <tr>
-      <th>AA</th>
-      <td>American Airlines Inc</td>
+      <th>VX</th>
+      <td>Virgin America</td>
+    </tr>
+    <tr>
+      <th>NK</th>
+      <td>Spirit Airlines</td>
     </tr>
   </tbody>
 </table>
@@ -232,7 +229,9 @@ fig = plt.figure(figsize=(20,10))
 
 df.UNIQUE_CARRIER.value_counts().plot(kind='barh')
 
-plt.ylabel('Frequency', fontsize=15); plt.xlabel('Airline', fontsize=15)
+plt.xlabel('Count', fontsize=15); 
+plt.ylabel('Airline', fontsize=15)
+
 plt.tick_params(axis='both', labelsize=15)
 plt.title('Flights per Airline (2016)', fontsize=15)
 ```
@@ -240,7 +239,7 @@ plt.title('Flights per Airline (2016)', fontsize=15)
 
 
 
-    <matplotlib.text.Text at 0x150dd3b38>
+    <matplotlib.text.Text at 0x114064828>
 
 
 
@@ -407,12 +406,16 @@ plot = delayratiodf[['Delays', 'Total']].plot(kind='barh', figsize=(20,15), lege
 
 # Increase the legend size
 plot.legend(loc=4, prop={'size':20})
+
+plt.xlabel('Count', fontsize=15); 
+plt.ylabel('Airline', fontsize=15)
+plt.title('Delays / Total flights per Airline (2016)', fontsize=15)
 ```
 
 
 
 
-    <matplotlib.legend.Legend at 0x1408624e0>
+    <matplotlib.text.Text at 0x138488710>
 
 
 
@@ -537,10 +540,13 @@ delayratiodf
 
 
 ```python
-ax = delayratiodf.plot(y='Percentage', kind='barh', figsize=(10,5), title='% of delayed flights', color='red')
+ax = delayratiodf.plot(y='Percentage', kind='barh', figsize=(10,5), title='Percentage of Delays per Airline (2016)', color='red')
 
 plt.ylabel('Percentage', fontsize=15); plt.xlabel('Airline', fontsize=20)
 plt.tick_params(axis='both', labelsize=20)
+
+plt.xlabel('% of delays', fontsize=15); 
+plt.ylabel('Airline', fontsize=15)
 
 for p in ax.patches:
     ax.annotate("%.2f" % p.get_width(), (p.get_x() + p.get_width(), p.get_y()), xytext=(5, 10), textcoords='offset points')
@@ -559,33 +565,119 @@ cali_df = df[(df['ORIGIN_CITY_NAME'].str.endswith('CA')) & (df['DEST_CITY_NAME']
 ```
 
 
-
-
-
-
 ```python
-plot = cali_df.UNIQUE_CARRIER.value_counts().plot(kind='barh', title='Flights per Airline')
+plot = cali_df.UNIQUE_CARRIER.value_counts().plot(kind='barh', figsize=(10,5), title='Flights per Airline')
 ```
 
 
-![png](../images/output_29_0.png)
+![png](../images/output_28_0.png)
 
 
 
 ```python
+plt.figure(figsize=(10,5))
+
+
 ax = sns.barplot(orient='v', x='UNIQUE_CARRIER', y='ARR_DELAY_NEW', data=cali_df)
-ax.set_title('Average delay by airline')
+ax.set_ylabel('Average Delay in Minutes')
+ax.set_xlabel('Airline')
+
+ax.set_title('Average Delay (Minutes) By Airline (2016)')
 ```
 
 
 
 
-    <matplotlib.text.Text at 0x1535b3cf8>
+    <matplotlib.text.Text at 0x11b6d8a20>
 
 
 
 
-![png](../images/output_30_1.png)
+![png](../images/output_29_1.png)
+
+
+### Correlation Heatmap of Delay Metrics 
+(Weather, Nas, Security, Late Arrival, New Delay)
+
+
+```python
+correlation = cali_df[['DEST_AIRPORT_ID', 'ORIGIN_AIRPORT_ID', 'WEATHER_DELAY', 
+                       'NAS_DELAY', 'SECURITY_DELAY', 'LATE_AIRCRAFT_DELAY', 'ARR_DELAY_NEW']].corr()
+
+plt.figure(figsize=(10,7))
+sns.heatmap(correlation, vmax=1, square=True,annot=True,cmap='cubehelix')
+
+plt.title('Correlation between different fearures')
+```
+
+
+
+
+    <matplotlib.text.Text at 0x130dbe5f8>
+
+
+
+
+![png](../images/output_31_1.png)
+
+
+### Average Delay - Ordered by Origin Airport
+
+
+```python
+order = cali_df.groupby('ORIGIN_CITY_NAME')['ARR_DELAY_NEW'].mean().sort_values()
+
+plt.figure(figsize=(10,5))
+
+ax = sns.barplot(orient='h',  y='ORIGIN_CITY_NAME', 
+                 order = order.keys(),
+                 x='ARR_DELAY_NEW', palette="Blues", data=cali_df)
+
+ax.set_xlabel('Average Delay in Minutes')
+ax.set_ylabel('Origin Airport')
+
+ax.set_title('Average Delay (Minutes) By Origin Airport (2016)')
+
+```
+
+
+
+
+    <matplotlib.text.Text at 0x13852f320>
+
+
+
+
+![png](../images/output_33_1.png)
+
+
+### Average Delay - Ordered by Destination Airport
+
+
+```python
+order = cali_df.groupby('DEST_CITY_NAME')['ARR_DELAY_NEW'].mean().sort_values()
+
+plt.figure(figsize=(10,5))
+
+ax = sns.barplot(orient='h',  y='DEST_CITY_NAME', 
+                 order = order.keys(),
+                 x='ARR_DELAY_NEW', palette="Reds", data=cali_df)
+
+ax.set_xlabel('Average Delay in Minutes')
+ax.set_ylabel('Destination Airport')
+
+ax.set_title('Average Delay (Minutes) By Destination Airport (2016)')
+```
+
+
+
+
+    <matplotlib.text.Text at 0x134f2b048>
+
+
+
+
+![png](../images/output_35_1.png)
 
 
 
@@ -678,5 +770,5 @@ plt.show()
 
 
 
-![png](../images/output_35_1.png)
+![png](../images/output_40_1.png)
 
